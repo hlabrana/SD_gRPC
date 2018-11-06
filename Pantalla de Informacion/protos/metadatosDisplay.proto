@@ -1,0 +1,33 @@
+syntax = "proto3";
+package proto;
+
+service API{
+    rpc Departures (mensaje) returns (responseDepartures){}
+    rpc Arrivals (mensaje) returns (responseArrivals){}
+}
+
+message mensaje {
+    string mensaje = 1;
+}
+
+message responseDepartures {
+    repeated ObjectDepartures departures = 1;
+}
+
+message responseArrivals {
+    repeated ObjectArrivals arrivals = 1;
+}
+
+message ObjectDepartures {
+    string codigoAvion = 1;
+    string destino = 2;
+    string pistaDespegue = 3;
+    string horaDespegue = 4; 
+}
+
+message ObjectArrivals {
+    string codigoAvion = 1;
+    string proveniente = 2;
+    string pistaLlegada = 3;
+    string horaLlegada = 4;  
+}
